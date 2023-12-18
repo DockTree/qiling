@@ -189,6 +189,16 @@ def socket_ip_option_mapping(t: int, archtype: QL_ARCH, ostype: QL_OS) -> str:
 
     return _constant_mapping(t, socket_option_map)
 
+def socket_ipv6_option_mapping(t: int, archtype: QL_ARCH) -> str:
+    socket_option_map = {
+        QL_ARCH.X86:   linux_socket_ip_options,
+        QL_ARCH.X8664: linux_socket_ip_options,
+        QL_ARCH.ARM:   linux_arm_socket_ipv6_options,
+        QL_ARCH.ARM64: linux_arm_socket_ipv6_options,
+        QL_ARCH.MIPS:  linux_mips_socket_ipv6_options
+    }[archtype]
+
+     return _constant_mapping(t, socket_option_map)
 
 def socket_option_mapping(t: int, archtype: QL_ARCH) -> str:
     socket_option_map = {
