@@ -133,6 +133,9 @@ def __host_socket_option(vsock_level: int, vsock_opt: int, arch_type: QL_ARCH, o
         elif vsock_level == 0x0006:  # IPPROTO_TCP
             vsock_opt_name = socket_tcp_option_mapping(vsock_opt, arch_type)
 
+        elif vsock_level == 0x0029: #IPV6
+            vsock_opt_name = socket_ipv6_option_mapping(vsock_opt, arch_type)
+        
         else:
             vsock_opt_name = socket_option_mapping(vsock_opt, arch_type)
 
