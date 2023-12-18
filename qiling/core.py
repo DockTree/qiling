@@ -739,7 +739,22 @@ class Qiling(QlCoreHooks, QlCoreStructs):
 
         else:
             self.emu_stop()
+    # exit emulation
+    def exit(self):
+        if self.multithread:
+            self.os.thread_management.stop()
+            sys.exit()
 
+        elif self.baremetal:
+            self.os.stop()
+            sys.exit()
+
+        else:
+            self.emu_stop()
+            sys.exit()
+    # gadget for sanitizer
+    def abort(self):
+        os.abort()
     # start emulation
     def emu_start(self, begin: int, end: int, timeout: int = 0, count: int = 0):
         """Start emulation.
