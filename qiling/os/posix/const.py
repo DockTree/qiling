@@ -298,6 +298,14 @@ linux_arm_socket_options = {
     "SO_RCVTIMEO"        : 0x0014,
 }
 
+linux_arm_socket_ipv6_options = {
+    "IPV6_V6ONLY"        : 0x001a,
+}
+
+linux_mips_socket_ipv6_options = {
+    "IPV6_V6ONLY"        : 0x001a,
+}
+
 
 linux_mips_socket_types = {
     'SOCK_STREAM'    : 0x2,
